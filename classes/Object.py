@@ -28,6 +28,11 @@ class Object:
     @property
     def height(self) -> int:
         return self.__shape.height
+    
+    def copy(self):
+        object = self.__class__(self.__name)
+        object.add_shape(self.__shape.copy())
+        return object
 
     def add_shape(self, shape: Shape) -> None:
         self.__shape = shape

@@ -1,13 +1,14 @@
 from classes.Test import Test
 from classes.ModelDrawer import ModelDrawer
 
+gna = Test.genetic_algorithm(1)
 
-modelDrawer = ModelDrawer()
+print(gna.fitness_function())
 
-environment = Test.create_environment(30)
+for env in gna.population:
+    modelDrawer = ModelDrawer()
+    
+    modelDrawer.draw_all(env)
+    modelDrawer.name = env.name
 
-environment.place_objects_ramdomly()
-
-modelDrawer.draw_all(environment)
-
-modelDrawer.save_img()
+    modelDrawer.save_img()

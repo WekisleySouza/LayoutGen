@@ -15,5 +15,8 @@ class Shape:
     def type(self) -> str:
         return self.__shape_type
     
+    def copy(self):
+        return self.__class__(self.__shape_type, self.__position)
+    
     def colides(self) -> bool:
         return True

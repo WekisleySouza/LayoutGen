@@ -11,9 +11,23 @@ class Rectangle(Shape):
     def width(self) -> None:
         return self.__width
     
+    @width.setter
+    def width(self, width: int) -> None:
+        self.__width = width
+    
     @property
     def height(self) -> None:
         return self.__height
+    
+    @height.setter
+    def height(self, height: int) -> None:
+        self.__height = height
+    
+    def copy(self):
+        return self.__class__(self.position, self.__width, self.__height)
+    
+    def swap_dimensions(self):
+        self.__width, self.__height = self.__height, self.__width
     
     def colides(self, rectangle) -> None:
         x, y = rectangle.position

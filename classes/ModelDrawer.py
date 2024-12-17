@@ -12,14 +12,17 @@ class ModelDrawer():
 
     def draw(self, shape: Shape, text='', color='black', width=3) -> None:
         x, y = shape.position
+
         if shape.type == ShapeTypes.RECTANGLE:
             self.__draw.rectangle([x, y, shape.width + x, shape.height + y], outline=color, width=width)
             self.__draw.text((x+5, y+5), text, fill=color)
 
     def draw_all(self, environment: Environment):
-        self.draw(environment.shape, color='red')
+        self.draw(environment.shape, text=environment.name, color='red')
         for obj in environment.objects:
             self.draw(obj.shape, text=obj.name)
+        for door in environment.doors:
+            self.draw(door, text=door.name,  color='green')
 
     @property
     def name(self) -> str:
